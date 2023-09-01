@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Query Page</title>
+    <link rel="stylesheet" th:href="@{parser.css}">
+  </head>
+  <body>
+  <h1>SQL Query Parser</h1>
+    <form id="sql-form">
+      <label for="sql-query">SQL 쿼리 문을 입력해 주세요:</label>
+      <textarea id="sql-query" name="inputQuery" rows="5" cols="40"></textarea>
+      <button type="button" id="execute-button">실행</button>
+    </form>
+
+  <div id="result" th:each="token:${parsedQuery}" >
+    <div th:text="${token}"></div>
+  </div>
+
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+  <script th:src="@{parser.js}"></script>
+  </body>
+</html>
