@@ -17,6 +17,12 @@ public class ParserController {
     public ParserController(ParserService parserService) {
         this.parserService = parserService;
     }
+
+    /**
+     * @param model
+     * @param session
+     * @return
+     */
     @GetMapping("/")
     public String viewMain(Model model,HttpSession session) {
 
@@ -27,6 +33,11 @@ public class ParserController {
         return "index";
     }
 
+    /**
+     * @param parser
+     * @param session
+     * @return
+     */
     @PostMapping("/")
     public String postParsingQuery(@ModelAttribute("parser") Parser parser, HttpSession session) {
         String[] lines = parser.inputQuery.split("\n");

@@ -8,6 +8,11 @@ import java.util.ArrayList;
 public class ParserService {
 
     Parser parser = new Parser();
+
+    /**
+     * @param lines
+     * @return
+     */
     ArrayList<String> parsingQuery(String[] lines) {
 
         ArrayList<String> parsedSQLQuery = new ArrayList<>();
@@ -27,29 +32,37 @@ public class ParserService {
         return parsedSQLQuery;
     }
 
+    /**
+     * @param token 쿼리문 파싱 함수. 주석에 대한 파싱은 따로 처리
+     * @return
+     */
     String parsingToken(String token) {
 
         if (parser.keyWord.contains(token)) {
-            return token + "-> Keyword";
+            return token + " -> Keyword";
         } else if (!isFunction(token).isEmpty()) {
             return isFunction(token);
         } else if (token.contains("'")) {
-            return token + "-> 문자열";
+            return token + " -> 문자열";
         } else if (token.contains(":")) {
-            return token + "-> Binding 변수";
+            return token + " -> Binding 변수";
         }
         else {
-            return token + "-> ETC";
+            return token + " -> ETC";
         }
 
 
     }
 
+    /**
+     * @param token
+     * @return
+     */
     String isFunction(String token) {
         String parsingToken="";
         for (String item : parser.function) {
             if (token.contains(item)) {
-                parsingToken = token + "-> Function";
+                parsingToken = token + " -> Function";
                 break; // 일치하는 요소를 찾았으므로 반복문 종료
             }
         }
