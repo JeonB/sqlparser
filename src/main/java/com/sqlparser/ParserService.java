@@ -47,6 +47,9 @@ public class ParserService {
             // 주석이 없다면 공백문자 기준으로 토큰을 파싱 처리함
             String[] tokens = line.split("\\s");
             for (String token : tokens) {
+                if(token.isBlank()){
+                    continue;
+                }
                 parsedSQLQuery.add(parsingToken(token));
             }
         }
