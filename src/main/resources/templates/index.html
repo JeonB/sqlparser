@@ -12,10 +12,14 @@
       <label for="sql-query">SQL 쿼리 문을 입력해 주세요:</label>
       <textarea id="sql-query" name="inputQuery" rows="5" cols="40"></textarea>
       <button type="button" id="execute-button">실행</button>
+      <button type="button" id="addKeyword-button">예약어 추가</button>
+      <button type="button" id="addFunction-button">함수 추가</button>
     </form>
 
-  <div id="result" th:each="token:${parsedQuery}" >
-    <div th:text="${token}"></div>
+  <div id="result">
+    <pre th:each="token:${parsedQuery}" th:if="${token != '\n'}">
+        <span th:text="${token}"></span>
+    </pre>
   </div>
 
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>

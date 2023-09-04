@@ -12,10 +12,8 @@ public class Parser {
 
     String inputQuery;
 
-    // 모든 예약어를 사전에 설정하기는 어려우므로 추가 가능한 객체 만들기
+    // 기본 예약어 및 함수 리스트
     LinkedList<String> keyWord = new LinkedList<>(Arrays.asList("SELECT","FROM","WHERE","AND","LIKE","JOIN"));
     LinkedList<String> function = new LinkedList<>(Arrays.asList("MAX", "SUM", "COUNT", "NVL"));
-
-
 
 }
