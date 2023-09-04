@@ -1,5 +1,7 @@
-package com.sqlparser;
+package com.sqlparser.controller;
 
+import com.sqlparser.service.ParserService;
+import com.sqlparser.model.Parser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

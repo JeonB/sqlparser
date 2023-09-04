@@ -1,5 +1,6 @@
-package com.sqlparser;
+package com.sqlparser.service;
 
+import com.sqlparser.model.Parser;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class ParserService {
      * @param lines 뷰화면에서 입력된 쿼리한 줄(줄바꿈 문자 기준으로 구분됨)
      * @return 파싱된 쿼리 리턴
      */
-    ArrayList<String> parsingQuery(String[] lines) {
+    public ArrayList<String> parsingQuery(String[] lines) {
 
         ArrayList<String> parsedSQLQuery = new ArrayList<>();
         boolean isAnnotaion = false;
@@ -97,7 +98,7 @@ public class ParserService {
     /** 입력한 예약어를 추가하는 메소드
      * @param keyword 추가 예약
      */
-    void addKeyWord(String keyword) {
+    public void addKeyWord(String keyword) {
         parser.keyWord.add(keyword);
 //        System.out.println("키워드추가완료");
     }
@@ -105,7 +106,7 @@ public class ParserService {
     /** 입력한 함수를 추가하는 메소드
      * @param function 추가 함수
      */
-    void addFunction(String function) {
+    public void addFunction(String function) {
         parser.function.add(function);
 //        System.out.println("펑션추가완료");
     }
